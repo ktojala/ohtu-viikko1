@@ -17,7 +17,7 @@ public class VarastoTest {
 
     @Before
     public void setUpNega() {
-        varasto = new Varasto(-10);
+        varasto = new Varasto(-11);
     }
 
     @Test
