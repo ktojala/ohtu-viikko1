@@ -16,6 +16,16 @@ public class VarastoTest {
     double vertailuTarkkuus = 0.0001;
 
     @Before
+    public void setUpNega() {
+        varasto = new Varasto(-10);
+    }
+
+    @Test
+    public void konstruktoriLoiNegaVaraston() {
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Before
     public void setUp() {
         varasto = new Varasto(10);
     }
@@ -25,6 +35,7 @@ public class VarastoTest {
         assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
     }
 
+    
     @Test
     public void uudellaVarastollaOikeaTilavuus() {
         assertEquals(10, varasto.getTilavuus(), vertailuTarkkuus);
@@ -38,6 +49,15 @@ public class VarastoTest {
         assertEquals(8, varasto.getSaldo(), vertailuTarkkuus);
     }
 
+    @Test
+    public void lisaysLisaaSaldoaNegalla() {
+        varasto.lisaaVarastoon(-8);
+
+        // saldo ei muutu negalisäyksellä
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    
     @Test
     public void lisaysLisaaPienentaaVapaataTilaa() {
         varasto.lisaaVarastoon(8);
@@ -65,4 +85,42 @@ public class VarastoTest {
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
 
+    @Test
+    public void ottaminenNegaa() {
+        varasto.otaVarastosta(-2);
+        assertEquals(10, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void tulostaaVaraston() {
+        String vastaus = varasto.toString();
+        assertEquals("saldo = 0.0, vielä tilaa 10.0", vastaus);   
+    }
+
+// testataan eri tavoin kuormitettua konstruktoria
+
+    Varasto varasto2;
+
+    @Before
+    public void setUpUnempty1() {
+        varasto2 = new Varasto(10,6);
+    }
+
+    @Test
+    public void konstruktori2OikeaSaldo() {
+        assertEquals(6, varasto2.getSaldo(), vertailuTarkkuus);
+    }
+
+    Varasto varasto3; 
+
+    @Before
+    public void setUpNegaTilavuus() {
+        varasto3 = new Varasto(10,-1);
+    } 
+
+    @Test
+    public void negaSaldo() {
+        assertEquals(0, varasto3.getSaldo(), vertailuTarkkuus);
+    }
+ 
 }
