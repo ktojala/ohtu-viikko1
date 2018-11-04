@@ -133,11 +133,18 @@ public class VarastoTest {
 
     Varasto varasto4;
 
-
     @Test
     public void konstruktoriNegaTilavuus() {
         varasto4 = new Varasto(-10,0);
         assertEquals(0, varasto4.getTilavuus(), vertailuTarkkuus);
+    }
+
+    Varasto varasto5;
+
+    @Test
+    public void konstruktoriSaldoYliTilavuuden() {
+        varasto5 = new Varasto(2,4);
+        assertEquals(2, varasto5.getSaldo(), vertailuTarkkuus);
     }
 
 }
