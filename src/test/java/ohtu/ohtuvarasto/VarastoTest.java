@@ -22,7 +22,8 @@ public class VarastoTest {
 
     @Test
     public void konstruktoriLoiNegaVaraston() {
-        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+// testi läpäisee arvolla 0 (muutos tehtävää 10 varten että ei mene läpi)
+        assertEquals(1, varasto.getSaldo(), vertailuTarkkuus);
     }
     
     @Before
