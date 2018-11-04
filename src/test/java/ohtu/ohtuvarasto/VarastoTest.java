@@ -142,8 +142,9 @@ public class VarastoTest {
     Varasto varasto5;
 
     @Test
-    public void konstruktoriSaldoYliTilavuuden() {
-        varasto5 = new Varasto(2,4);
+    public void lisaaSaldoaYliTilavuuden() {
+        varasto5 = new Varasto(2,0);
+        varasto5.lisaaVarastoon(4);
         assertEquals(2, varasto5.getSaldo(), vertailuTarkkuus);
     }
 
