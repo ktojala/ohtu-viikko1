@@ -93,6 +93,13 @@ public class VarastoTest {
     }
 
     @Test
+    public void ottaminenLiikaa() {
+        varasto.lisaaVarastoon(8);
+        varasto.otaVarastosta(10);
+        assertEquals(0, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+
+    @Test
     public void tulostaaVaraston() {
         String vastaus = varasto.toString();
         assertEquals("saldo = 0.0, vielä tilaa 10.0", vastaus);   
