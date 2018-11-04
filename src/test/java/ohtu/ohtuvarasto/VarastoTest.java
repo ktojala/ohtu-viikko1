@@ -122,7 +122,7 @@ public class VarastoTest {
     Varasto varasto3; 
 
     @Before
-    public void setUpNegaTilavuus() {
+    public void setUpNegaSaldo() {
         varasto3 = new Varasto(10,-1);
     } 
 
@@ -130,5 +130,14 @@ public class VarastoTest {
     public void negaSaldo() {
         assertEquals(0, varasto3.getSaldo(), vertailuTarkkuus);
     }
- 
+
+    Varasto varasto4;
+
+
+    @Test
+    public void konstruktoriNegaTilavuus() {
+        varasto4 = new Varasto(-10,0);
+        assertEquals(0, varasto4.getTilavuus(), vertailuTarkkuus);
+    }
+
 }
