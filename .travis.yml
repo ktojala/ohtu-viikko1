@@ -4,4 +4,4 @@ script:
   - ./gradlew check
   - ./gradlew jacocoTestReport
 after_success:
-  - bash < (curl -s https://codecov.io/gh/ktojala/ohtu-viikko1)
+  - bash <(curl -s https://codecov.io/bash)
