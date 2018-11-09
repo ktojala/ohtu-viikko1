@@ -40,10 +40,10 @@ public class Statistics {
         Collections.sort(players);
         ArrayList<Player> topScorers = new ArrayList<Player>();
         Iterator<Player> playerIterator = players.iterator();
-        
-        while (howMany>=0) {
+        int hereHowMany = howMany;
+        while (hereHowMany>=0) {
             topScorers.add( playerIterator.next() );            
-            howMany--;
+            hereHowMany--;
         }
         
         return topScorers;

@@ -68,5 +68,5 @@ public class StatisticsTest {
         Player p = list.get(0);
         assertEquals("Gretzky", p.getName());
     }  
-    
+
 }
